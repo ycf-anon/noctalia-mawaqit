@@ -1,6 +1,6 @@
 # Mawaqit for Noctalia
 
-Prayer times plugin for Noctalia with a live countdown.
+Prayer times plugin for Noctalia V5.
 # Mawaqit Plugin
 
 ![Mawaqit Screenshot](assets/mawaqit.png)
