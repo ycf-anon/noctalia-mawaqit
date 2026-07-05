@@ -1,0 +1,133 @@
+{
+  "menu": {
+    "openPanel": "Namaz Vakitlerini Aç",
+    "settings": "Widget Ayarları"
+  },
+  "widget": {
+    "soon": "yakında",
+    "now": "şimdi",
+    "tooltip": {
+      "noData": "Namaz verileri yüklenmedi",
+      "countdown": "Kalan süre"
+    }
+  },
+  "panel": {
+    "title": "Namaz Vakitleri",
+    "refresh": "Yenile",
+    "close": "Kapat",
+    "configure": "Ayarlar bölümünden şehrinizi seçin",
+    "now": "Şimdi",
+    "jumuah": "Cuma",
+    "today": "Bugün",
+    "tomorrow": "Yarın",
+    "imsak": "İmsak",
+    "fajr": "Sabah",
+    "sunrise": "Güneş",
+    "dhuhr": "Öğle",
+    "asr": "İkindi",
+    "maghrib": "Akşam",
+    "isha": "Yatsı"
+  },
+  "settings": {
+    "location": {
+      "header": "Konum",
+      "desc": "Günlük namaz vakitlerini Aladhan API üzerinden almak için kullanılır."
+    },
+    "city": {
+      "label": "Şehir",
+      "desc": "Şehir adını İngilizce girin."
+    },
+    "country": {
+      "label": "Ülke",
+      "desc": "Ülke adını veya 2 harfli kodunu girin (örn. TR, UK, DZ)."
+    },
+    "method": {
+      "label": "Hesaplama Yöntemi",
+      "desc": "Namaz vakitlerinin nasıl hesaplandığını belirler."
+    },
+    "school": {
+      "label": "Asr Hesaplama Mezhebi",
+      "desc": "Şafi/Maliki/Hanbeli gölge faktörü 1. Hanefi faktör 2 kullanır."
+    },
+    "display": {
+      "header": "Görünüm"
+    },
+    "showCountdown": {
+      "label": "Geri sayımı göster",
+      "desc": "Çubukta sabit saat yerine canlı geri sayım göster."
+    },
+    "showElapsed": {
+      "label": "Geçen süreyi göster",
+      "desc": "Namaz başladıktan sonra 1 saate kadar (+) say."
+    },
+    "hidePrayerName": {
+      "label": "Namaz adını gizle",
+      "desc": "Çubukta yalnızca saat veya geri sayımı göster."
+    },
+    "styling": {
+      "header": "Stil"
+    },
+    "widgetIcon": {
+      "label": "Varsayılan simge"
+    },
+    "dynamicIcon": {
+      "label": "Dinamik namaz simgesi",
+      "desc": "Mevcut namaza göre güneş/ay simgesi kullan."
+    },
+    "textColor": {
+      "label": "Metin rengi"
+    },
+    "iconColor": {
+      "label": "Simge rengi"
+    },
+    "activeColor": {
+      "label": "Aktif renk",
+      "desc": "Namaz 'Şimdi' veya 'Geçti' olduğunda kullanılan renk."
+    },
+    "notifications": {
+      "header": "Bildirimler",
+      "desc": "Her namaz vakti başladığında bildirim göster."
+    },
+    "showNotifications": {
+      "label": "Namaz bildirimleri"
+    },
+    "azan": {
+      "header": "Ezan",
+      "desc": "Her namaz vaktinde ezan sesi çal.",
+      "preview": "Ezanı önizle",
+      "stop": "Önizlemeyi durdur"
+    },
+    "playAzan": {
+      "label": "Ezan Çal"
+    },
+    "azanFile": {
+      "label": "Ezan",
+      "desc": "Hangi ezanın çalınacağını seçin."
+    },
+    "azan1": "Ezan 1",
+    "azan2": "Ezan 2",
+    "azan3": "Ezan 3",
+    "calibration": {
+      "header": "Kalibrasyon",
+      "desc": "Yerel hilal gözlemiyle uyuşmuyorsa Hicri tarihi ayarlayın."
+    },
+    "hijriDayOffset": {
+      "label": "Hicri Gün Ayarı",
+      "desc": "API tarihi yerel hilal gözlemiyle uyuşmuyorsa Hicri günü kaydırın."
+    },
+    "tune": {
+      "header": "Namaz Vakti Ofsetleri",
+      "desc": "Namaz başına dakika cinsinden ayarlamalar.",
+      "enable": "Etkinleştir",
+      "fajr": "Fecir ofseti (dk)",
+      "dhuhr": "Öğle ofseti (dk)",
+      "asr": "İkindi ofseti (dk)",
+      "maghrib": "Akşam ofseti (dk)",
+      "isha": "Yatsı ofseti (dk)"
+    }
+  },
+  "error": {
+    "network": "Ağ isteği başarısız oldu.",
+    "generic": "Namaz vakitleri yüklenemedi."
+  }
+}

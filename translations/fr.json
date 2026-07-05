@@ -1,0 +1,133 @@
+{
+  "menu": {
+    "openPanel": "Ouvrir les Temps de Prières",
+    "settings": "Paramètres du Widget"
+  },
+  "widget": {
+    "soon": "bientôt",
+    "now": "maintenant",
+    "tooltip": {
+      "noData": "Données des prières non chargées",
+      "countdown": "Temps restant"
+    }
+  },
+  "panel": {
+    "title": "Temps des Prières",
+    "refresh": "Rafraîchir",
+    "close": "Fermer",
+    "configure": "Configurez votre ville dans les paramètres",
+    "now": "Maintenant",
+    "jumuah": "Jumu'ah",
+    "today": "Aujourd'hui",
+    "tomorrow": "Demain",
+    "imsak": "Imsak",
+    "fajr": "Fajr",
+    "sunrise": "Lever du soleil",
+    "dhuhr": "Dhuhr",
+    "asr": "Asr",
+    "maghrib": "Maghrib",
+    "isha": "Isha"
+  },
+  "settings": {
+    "location": {
+      "header": "Localisation",
+      "desc": "Utilisé pour récupérer les temps de prières depuis l'API Aladhan."
+    },
+    "city": {
+      "label": "Ville",
+      "desc": "Entrez le nom de votre ville en anglais."
+    },
+    "country": {
+      "label": "Pays",
+      "desc": "Entrez le nom de votre pays ou le code à 2 lettres (ex. FR, DZ, MA)."
+    },
+    "method": {
+      "label": "Méthode de calcul",
+      "desc": "Détermine comment les temps de prières sont calculés."
+    },
+    "school": {
+      "label": "École de calcul de l'Asr",
+      "desc": "Shafi/Maliki/Hanbali utilise le facteur 1. Hanafi utilise le facteur 2."
+    },
+    "display": {
+      "header": "Affichage"
+    },
+    "showCountdown": {
+      "label": "Afficher le compte à rebours",
+      "desc": "Afficher un compte à rebours en direct de la prochaine prière."
+    },
+    "showElapsed": {
+      "label": "Afficher le temps écoulé après la prière",
+      "desc": "Après le début d'une prière, compte (+) jusqu'à 1 heure."
+    },
+    "hidePrayerName": {
+      "label": "Masquer le nom de la prière",
+      "desc": "Afficher uniquement l'heure ou le compte à rebours."
+    },
+    "styling": {
+      "header": "Style"
+    },
+    "widgetIcon": {
+      "label": "Icône par défaut"
+    },
+    "dynamicIcon": {
+      "label": "Icône de prière dynamique",
+      "desc": "Utiliser une icône soleil/lune selon la prière en cours."
+    },
+    "textColor": {
+      "label": "Couleur du texte"
+    },
+    "iconColor": {
+      "label": "Couleur de l'icône"
+    },
+    "activeColor": {
+      "label": "Couleur active",
+      "desc": "Couleur utilisée lorsque la prière est 'Maintenant' ou 'Écoulée'."
+    },
+    "notifications": {
+      "header": "Notifications",
+      "desc": "Afficher une notification à chaque début de temps de prière."
+    },
+    "showNotifications": {
+      "label": "Notifications de prière"
+    },
+    "azan": {
+      "header": "Azan",
+      "desc": "Jouer l'azan audio à l'heure de chaque prière.",
+      "preview": "Prévisualiser l'azan",
+      "stop": "Arrêter la prévisualisation"
+    },
+    "playAzan": {
+      "label": "Jouer l'Azan"
+    },
+    "azanFile": {
+      "label": "Azan",
+      "desc": "Sélectionnez quel azan jouer."
+    },
+    "azan1": "Azan 1",
+    "azan2": "Azan 2",
+    "azan3": "Azan 3",
+    "calibration": {
+      "header": "Calibration",
+      "desc": "Ajustez la date Hijri si elle ne correspond pas à votre observation locale."
+    },
+    "hijriDayOffset": {
+      "label": "Ajustement du jour Hijri",
+      "desc": "Décaler le jour Hijri affiché."
+    },
+    "tune": {
+      "header": "Décalages des temps de prière",
+      "desc": "Ajustements en minutes par prière.",
+      "enable": "Activer",
+      "fajr": "Décalage Fajr (min)",
+      "dhuhr": "Décalage Dhuhr (min)",
+      "asr": "Décalage Asr (min)",
+      "maghrib": "Décalage Maghrib (min)",
+      "isha": "Décalage Isha (min)"
+    }
+  },
+  "error": {
+    "network": "La requête réseau a échoué. Vérifiez votre connexion internet.",
+    "generic": "Échec du chargement des temps de prière."
+  }
+}

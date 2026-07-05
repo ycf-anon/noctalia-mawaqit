@@ -1,0 +1,240 @@
+id          = "ycf/mawaqit"
+name        = "Mawaqit"
+version     = "2.0.0"
+min_noctalia = "5.0.0"
+author      = "ycf-anon"
+license     = "MIT"
+tags        = ["prayer", "islam", "bar", "panel"]
+icon        = "building-mosque"
+description = "Prayer times with live countdown, notifications, and azan."
+
+# ── Plugin-level settings (shared across widget, service, panel) ──────────────
+
+[[setting]]
+key     = "city"
+type    = "string"
+label   = "City"
+description = "Your city name in English."
+default = "London"
+
+[[setting]]
+key     = "country"
+type    = "string"
+label   = "Country"
+description = "Country name or 2-letter code (e.g. DZ, FR, UK)."
+default = "UK"
+
+[[setting]]
+key     = "method"
+type    = "select"
+label   = "Calculation Method"
+description = "Choose the authority followed in your region."
+default = "3"
+options = [
+    { value = "0",      label = "Shia Ithna-Ashari" },
+    { value = "1",      label = "University of Islamic Sciences, Karachi" },
+    { value = "2",      label = "Islamic Society of North America (ISNA)" },
+    { value = "3",      label = "Muslim World League" },
+    { value = "4",      label = "Umm Al-Qura University, Makkah" },
+    { value = "5",      label = "Egyptian General Authority of Survey" },
+    { value = "7",      label = "Institute of Geophysics, Tehran" },
+    { value = "8",      label = "Gulf Region" },
+    { value = "9",      label = "Kuwait" },
+    { value = "10",     label = "Qatar" },
+    { value = "11",     label = "Majlis Ugama Islam Singapura (MUIS)" },
+    { value = "12",     label = "Union Organization Islamic de France" },
+    { value = "13",     label = "Diyanet İşleri Başkanlığı, Turkey" },
+    { value = "14",     label = "Spiritual Administration of Muslims of Russia" },
+    { value = "15",     label = "Moonsighting Committee Worldwide" },
+    { value = "16",     label = "Dubai (experimental)" },
+    { value = "17",     label = "Jabatan Kemajuan Islam Malaysia (JAKIM)" },
+    { value = "18",     label = "Tunisia" },
+    { value = "19",     label = "Algeria / MESRS" },
+    { value = "20",     label = "KEMENAG, Indonesia" },
+    { value = "21",     label = "Morocco" },
+    { value = "22",     label = "Comunidade Islamica de Lisboa" },
+    { value = "23",     label = "Ministry of Awqaf, Jordan" },
+    { value = "custom", label = "Custom Method ID" },
+]
+
+[[setting]]
+key         = "methodCustomId"
+type        = "int"
+label       = "Custom Method ID"
+description = "Numeric method ID from the Aladhan API."
+default     = 19
+visible_when = { key = "method", values = ["custom"] }
+
+[[setting]]
+key         = "school"
+type        = "select"
+label       = "Asr Calculation School"
+description = "Shafi/Maliki/Hanbali = shadow factor 1. Hanafi = factor 2 (later Asr)."
+default     = "0"
+options     = [
+    { value = "0", label = "Shafi / Maliki / Hanbali" },
+    { value = "1", label = "Hanafi" },
+]
+
+[[setting]]
+key         = "hijriDayOffset"
+type        = "int"
+label       = "Hijri Day Adjustment"
+description = "Shift the displayed Hijri day if the API date does not match your local moon sighting."
+default     = 0
+min         = -3
+max         = 3
+
+[[setting]]
+key         = "showNotifications"
+type        = "bool"
+label       = "Prayer notifications"
+description = "Show a notification when each prayer time begins."
+default     = true
+
+[[setting]]
+key         = "playAzan"
+type        = "bool"
+label       = "Play Azan"
+description = "Play the azan when each prayer time begins."
+default     = false
+
+[[setting]]
+key         = "azanFile"
+type        = "select"
+label       = "Azan"
+description = "Select which azan to play."
+default     = "azan1.mp3"
+options     = [
+    { value = "azan1.mp3", label = "Azan 1" },
+    { value = "azan2.mp3", label = "Azan 2" },
+    { value = "azan3.mp3", label = "Azan 3" },
+]
+
+[[setting]]
+key         = "tune"
+type        = "bool"
+label       = "Enable prayer time offsets"
+description = "Apply per-prayer minute adjustments."
+default     = false
+
+[[setting]]
+key = "tuneFajr"
+type = "int"
+label = "Fajr offset (min)"
+default = 0
+min = -60
+max = 60
+visible_when = { key = "tune", values = ["true"] }
+
+[[setting]]
+key = "tuneDhuhr"
+type = "int"
+label = "Dhuhr offset (min)"
+default = 0
+min = -60
+max = 60
+visible_when = { key = "tune", values = ["true"] }
+
+[[setting]]
+key = "tuneAsr"
+type = "int"
+label = "Asr offset (min)"
+default = 0
+min = -60
+max = 60
+visible_when = { key = "tune", values = ["true"] }
+
+[[setting]]
+key = "tuneMaghrib"
+type = "int"
+label = "Maghrib offset (min)"
+default = 0
+min = -60
+max = 60
+visible_when = { key = "tune", values = ["true"] }
+
+[[setting]]
+key = "tuneIsha"
+type = "int"
+label = "Isha offset (min)"
+default = 0
+min = -60
+max = 60
+visible_when = { key = "tune", values = ["true"] }
+
+# ── Bar widget ────────────────────────────────────────────────────────────────
+
+[[widget]]
+id    = "bar"
+entry = "bar_widget.luau"
+
+    [[widget.setting]]
+    key = "showCountdown"
+    type = "bool"
+    label = "Show countdown"
+    description = "Live countdown to next prayer instead of static time."
+    default = true
+
+    [[widget.setting]]
+    key = "showElapsed"
+    type = "bool"
+    label = "Show elapsed time after prayer"
+    description = "After a prayer begins count up (+) for up to 1 hour."
+    default = false
+
+    [[widget.setting]]
+    key = "hidePrayerName"
+    type = "bool"
+    label = "Hide prayer name in bar"
+    description = "Show only the time/countdown without the prayer name label."
+    default = false
+
+    [[widget.setting]]
+    key = "widgetIcon"
+    type = "glyph"
+    label = "Default bar icon"
+    default = "building-mosque"
+
+    [[widget.setting]]
+    key = "dynamicIcon"
+    type = "bool"
+    label = "Dynamic prayer icon"
+    description = "Show a sun/moon icon matching the current prayer."
+    default = false
+
+    [[widget.setting]]
+    key = "textColor"
+    type = "color"
+    label = "Bar text color"
+    default = "on_surface"
+
+    [[widget.setting]]
+    key = "iconColor"
+    type = "color"
+    label = "Bar icon color"
+    default = "on_surface"
+
+    [[widget.setting]]
+    key = "activeColor"
+    type = "color"
+    label = "Active color"
+    description = "Color used when prayer is Now or Elapsed."
+    default = "primary"
+
+# ── Background service ────────────────────────────────────────────────────────
+
+[[service]]
+id    = "fetcher"
+entry = "service.luau"
+
+# ── Panel ─────────────────────────────────────────────────────────────────────
+
+[[panel]]
+id              = "panel"
+entry           = "panel.luau"
+width           = 380
+height          = 480
+placement       = "floating"
+position        = "auto"
+open_near_click = true
