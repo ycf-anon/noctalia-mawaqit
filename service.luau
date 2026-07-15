@@ -29,6 +29,7 @@ local tuneDhuhr      = noctalia.getConfig("tuneDhuhr")      or 0
 local tuneAsr        = noctalia.getConfig("tuneAsr")        or 0
 local tuneMaghrib    = noctalia.getConfig("tuneMaghrib")    or 0
 local tuneIsha       = noctalia.getConfig("tuneIsha")       or 0
+local twelveHourFormat = noctalia.getConfig("twelveHourFormat") or false
 local showNotifications = noctalia.getConfig("showNotifications") or true
 local playAzan       = noctalia.getConfig("playAzan")       or false
 local azanFile       = noctalia.getConfig("azanFile")       or "azan1.mp3"
@@ -54,6 +55,16 @@ local function parseTime(str)
     local h, m = str:match("^(%d+):(%d+)")
     if not h then return nil end
     return tonumber(h) * 3600 + tonumber(m) * 60
+end
+
+local function parseTwelveHours(str)
+    if not twelveHourFormat then return str end
+    local h, m = str:match("^(%d+):(%d+)")
+    if tonumber(h) < 12 then
+        return string.format("%s:%s AM", h - 0, m)
+    else
+        return string.format("%s:%s PM", h - 12, m)
+    end
 end
 
 local function todayStr()
@@ -135,12 +146,13 @@ local function processPrayerData(data)
         if raw then
             -- Strip DST annotation e.g. "05:23 (BST)"
             local clean = raw:match("^(%d+:%d+)") or raw
+            local parsedTwelveHours = parseTwelveHours(clean)
             local secs = parseTime(clean)
             if secs then
                 secs = applyTune(name, secs)
                 prayers[#prayers+1] = {
                     name = name,
-                    time = clean,
+                    time = parsedTwelveHours,
                     seconds = secs,
                     azanPrayer = AZAN_PRAYERS[i],
                 }

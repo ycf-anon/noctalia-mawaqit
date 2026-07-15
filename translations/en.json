@@ -115,6 +115,10 @@
       "label": "Hijri Day Adjustment",
       "desc": "Shift the displayed Hijri day if the API date does not match your local moon sighting."
     },
+    "twelveHourFormat": {
+      "label": "12-Hour Format",
+      "desc": "Show prayer times in 12-hour format."
+    },
     "tune": {
       "header": "Prayer Time Offsets",
       "desc": "Minute adjustments per prayer (negative = earlier, positive = later).",
