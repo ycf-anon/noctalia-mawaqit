@@ -86,6 +86,13 @@ min         = -3
 max         = 3
 
 [[setting]]
+key         = "twelveHourFormat"
+type        = "bool"
+label       = "12-Hour Format"
+description = "Show prayer times in 12-hour format."
+default     = false
+
+[[setting]]
 key         = "showNotifications"
 type        = "bool"
 label       = "Prayer notifications"

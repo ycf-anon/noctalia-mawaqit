@@ -5,14 +5,15 @@
 
 -- ── Config ────────────────────────────────────────────────────────────────────
 
-local showCountdown  = noctalia.getConfig("showCountdown")  or true
-local showElapsed    = noctalia.getConfig("showElapsed")    or false
-local hidePrayerName = noctalia.getConfig("hidePrayerName") or false
-local widgetIcon     = noctalia.getConfig("widgetIcon")     or "building-mosque"
-local dynamicIcon    = noctalia.getConfig("dynamicIcon")    or false
-local textColor      = noctalia.getConfig("textColor")      or "on_surface"
-local iconColor      = noctalia.getConfig("iconColor")      or "on_surface"
-local activeColor    = noctalia.getConfig("activeColor")    or "primary"
+local twelveHourFormat = noctalia.getConfig("twelveHourFormat") or false
+local showCountdown    = noctalia.getConfig("showCountdown")    or true
+local showElapsed      = noctalia.getConfig("showElapsed")      or false
+local hidePrayerName   = noctalia.getConfig("hidePrayerName")   or false
+local widgetIcon       = noctalia.getConfig("widgetIcon")       or "building-mosque"
+local dynamicIcon      = noctalia.getConfig("dynamicIcon")      or false
+local textColor        = noctalia.getConfig("textColor")        or "on_surface"
+local iconColor        = noctalia.getConfig("iconColor")        or "on_surface"
+local activeColor      = noctalia.getConfig("activeColor")      or "primary"
 
 -- ── Constants ─────────────────────────────────────────────────────────────────
 
@@ -59,7 +60,16 @@ end
 local function formatTime(secs)
     local h = math.floor(secs / 3600) % 24
     local m = math.floor((secs % 3600) / 60)
-    return string.format("%02d:%02d", h, m)
+
+    if twelveHourFormat then
+        if h < 12 then
+            return string.format("%s:%02d AM", h, m)
+        else
+            return string.format("%s:%02d PM", h - 12, m)
+        end
+    else
+        return string.format("%02d:%02d", h, m)
+    end
 end
 
 local function getIcon(prayerName)
